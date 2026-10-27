@@ -326,54 +326,69 @@ button, input, select { font: inherit; }
   }
 }
 
-/* Responsive dashboard improvements */
+
+/* Responsive dashboard layout */
 .dashboard-grid {
+  display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 18px;
 }
 
-.hero-panel,
-.panel,
-.stat-card {
+.dashboard-grid > * {
   min-width: 0;
 }
 
-.panel,
+.hero-panel {
+  grid-column: span 6;
+}
+
+.dashboard-grid > .stat-card {
+  grid-column: span 3;
+}
+
+.panel {
+  grid-column: span 6;
+  min-width: 0;
+}
+
 .stat-card {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 @media (max-width: 1200px) {
-  .dashboard-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+  .hero-panel {
+    grid-column: span 8;
+  }
+
+  .dashboard-grid > .stat-card {
+    grid-column: span 4;
+  }
+
+  .panel {
+    grid-column: span 6;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 760px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero-panel {
+  .hero-panel,
+  .dashboard-grid > .stat-card,
+  .panel {
     grid-column: 1 / -1;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
 
   .app-shell {
-    padding: 20px 14px;
-  }
-
-  .hero-panel {
-    grid-column: 1 / -1;
-  }
-
-  .panel,
-  .stat-card {
-    padding: 16px;
+    padding: 18px 12px;
   }
 }
+
