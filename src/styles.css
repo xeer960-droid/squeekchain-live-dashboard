@@ -325,3 +325,41 @@ button, input, select { font: inherit; }
     grid-template-columns: 1fr;
   }
 }
+/* Responsive dashboard improvements */
+.dashboard-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.hero-panel {
+  min-width: 0;
+}
+
+.panel,
+.stat-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    padding: 20px 14px;
+  }
+}
+
+
